@@ -1,0 +1,11 @@
+<div class="text-center">
+<h1>新規投稿</h1>
+<%= form_with model:@nail do |f| %>
+<br>
+<%= f.file_field :nail_image_id, accept: "image/*" %>
+<br>
+<%= f.text_area :introduction, placeholder: "ネイルの感想　お気に入りポイント" %>
+<br>
+<%= f.submit "新規投稿" %>
+<% end %>
+</div>

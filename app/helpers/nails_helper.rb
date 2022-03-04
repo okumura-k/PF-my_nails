@@ -1,0 +1,2 @@
+module NailsHelper
+end

@@ -1,0 +1,2 @@
+class NailCommentsController < ApplicationController
+end

@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_04_024110) do
+ActiveRecord::Schema.define(version: 2022_03_04_062904) do
+
+  create_table "nails", force: :cascade do |t|
+    t.integer "nail_id"
+    t.integer "user_id"
+    t.text "introduction"
+    t.string "nail_image_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

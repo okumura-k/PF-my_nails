@@ -1,0 +1,2 @@
+module NailCommentsHelper
+end
