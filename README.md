@@ -1,25 +1,51 @@
-# README
+# My_nails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+様々なユーザーが自身のネイルを投稿共有しユーザー同士が交流できるSNSサイトです。
+イメージとしては、ネイルのみに特化したTwitterのようなサービスになっています。
 
-Things you may want to cover:
+機能面では、
+自身のネイルの画像、好きなポイントなどを投稿することにより他のユーザーに共有することができ、
+いいねやコメント、DMなどによりユーザー同士の交流ができるようになっています。
+また、フォロー機能等により好みのユーザーの投稿情報も見れるようになっています。
 
-* Ruby version
+上記のポイントから、ネイルのデザインについて悩んでいるときにどんなデザインがあるのか知ることができ、
+メッセージを送ることによって、デザインの特徴など詳細について知り、不安に感じることなく楽しく交流することが出来ます。
 
-* System dependencies
+## サイトテーマ
+ネイルに関しての共有し交流ができるSNSサイト
 
-* Configuration
+### テーマを選んだ理由
+ネイリストとして働いている友人、その他の友人の
+#### ・サロンに来たが具体的なデザインが決まっていない
+#### ・どんなデザインがあるのか分からない
+#### ・ネイルに関して話したい、自身のネイルを見てほしい
+といったような声を多く聞いていたため、
+自分好みのネイルが見つけられるように少しでも助けになりたいと思ったからです。
+このサイトにより、
+ネイルについて大勢が悩んでいる現状が解消されネイルについて自信をもてるようになります。
+その結果ネイリストの方たちもスムーズに作業が出来、仕事効率も上がると思います。
+### ターゲットユーザ
+ネイルに関しての知識が浅い方
+自身のネイルに関してレビューが欲しい方
+幅広い年層の女性全般
 
-* Database creation
+### 主な利用シーン
+どんなネイルにしたいか決まっていない時
+ネイル好きな人と交流が取りたい時
 
-* Database initialization
+## 設計書
+発表後記載
 
-* How to run the test suite
+## チャレンジ要素一覧
+https://docs.google.com/spreadsheets/d/1NpD-K8xDSTJZNG1cGy7e1u-7R7SoPoNbFy1IpOosyp4/edit?usp=sharing
 
-* Services (job queues, cache servers, search engines, etc.)
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Deployment instructions
-
-* ...
-# pf-My_nails
+## 使用素材
+使用時に記述
