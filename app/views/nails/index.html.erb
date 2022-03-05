@@ -1,2 +1,16 @@
-<h1>Nails#index</h1>
-<p>Find me in app/views/nails/index.html.erb</p>
+<h3 class="text-center">ネイル投稿一覧</h3>
+<table>
+    <% @nails.each do |nail| %>
+  <tr>
+    <td><% if nail.image.attached? %>
+          <%= image_tag nail.image, size: "200x200" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "200x200" %>
+        <% end %>
+    </td>
+    <td><%= image_tag nail.user.get_profile_image, size: '50x50' %></td>
+    <td><%= nail.user.name %></td>
+    <td><%= nail.introduction %></td>
+  </tr>
+</table>
+    <% end %>

@@ -1,2 +1,24 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <table>
+      <tr>
+        <td><%= image_tag @user.get_profile_image, size: '50x50' %>
+        <%= @user.name %></td>
+           <% if current_user.id == @user.id %>
+        <td><%= link_to "編集", edit_user_path(@user.id), class: "btn btn-sm btn-success" %></td>
+        <% end %>
+      </tr>
+    </table>
+    <div>
+      <% @nail.each do |nail| %>
+      <%= link_to nail_path(nail.id) do %>
+      <%= image_tag nail.image, size: "200x200" %>
+      <% end %>
+    </div>
+    <div>
+      <%= nail.introduction %>
+    </div>
+    <% end %>
+   
+  </div>
+</div>

@@ -4,7 +4,9 @@
       <a class="navbar-brand" href="/"><span class="text-dark">My_nails</span></a>
         <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
-        <p>ようこそ、<%#=   %>さん！</p>
+        <li>
+          <%= link_to "mypage",user_path(current_user) %>
+        </li>
         <li>
           <%= link_to "新規投稿",new_nail_path,class: 'btn btn-sm btn-outline-dark' %>
         </li>
