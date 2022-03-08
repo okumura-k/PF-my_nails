@@ -1,2 +1,10 @@
-<h1>Nails#edit</h1>
-<p>Find me in app/views/nails/edit.html.erb</p>
+<div class="container text-center">
+      <h1>投稿内容編集</h1>
+    <%= form_with model: @nail, url: nail_path(@nail.id), method: :patch, local:true do |f| %>
+    <%= f.file_field :image, accept: "image/*" %>
+    <br>
+    <%= f.text_area :introduction,size: "50x5", placeholder: "ネイルの感想　お気に入りポイント" %>
+    <br>
+    <%= f.submit '編集を保存' %>
+    <% end %>
+</div>

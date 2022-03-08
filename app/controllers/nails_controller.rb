@@ -5,10 +5,18 @@ class NailsController < ApplicationController
   end
 
   def edit
+    @nail = Nail.find(params[:id])
+  end
+
+  def update
+    @nail = Nail.find(params[:id])
+    @nail.update(nail_params)
+    redirect_to nail_path(@nail.id)
   end
 
   def show
     @nail = Nail.find(params[:id])
+    @nail_comment = NailComment.new
   end
 
   def new
@@ -21,12 +29,12 @@ class NailsController < ApplicationController
     @nail.save
     redirect_to nail_path(@nail.id)
   end
-  
+
   def destroy
     @nail = Nail.find(params[:id])
     @nail.destroy
     redirect_to nails_path
-  end 
+  end
 
   private
   def nail_params

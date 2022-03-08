@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @nail = @user.nail
+    @nails = @user.nails
   end
 
   def edit

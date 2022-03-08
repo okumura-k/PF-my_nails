@@ -10,7 +10,7 @@
       </tr>
     </table>
     <div>
-      <% @nail.each do |nail| %>
+      <% @nails.each do |nail| %>
       <%= link_to nail_path(nail.id) do %>
       <%= image_tag nail.image, size: "200x200" %>
       <% end %>
@@ -18,7 +18,8 @@
     <div>
       <%= nail.introduction %>
     </div>
+    <p><%= link_to "#{nail.nail_comments.count} コメント", nail_path(nail.id) %></p>
     <% end %>
-   
+
   </div>
 </div>

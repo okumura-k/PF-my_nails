@@ -11,6 +11,7 @@
     <td><%= image_tag nail.user.get_profile_image, size: '50x50' %></td>
     <td><%= nail.user.name %></td>
     <td><%= nail.introduction %></td>
+    <td><%= link_to "#{nail.nail_comments.count} コメント", nail_path(nail.id) %></td>
   </tr>
 </table>
     <% end %>
