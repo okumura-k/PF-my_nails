@@ -1,7 +1,7 @@
 class NailsController < ApplicationController
 
   def index
-    @nails = Nail.all
+    @nails = Nail.page(params[:page])
   end
 
   def edit

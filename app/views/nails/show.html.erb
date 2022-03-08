@@ -1,58 +1,54 @@
-<div class="container text-center">
-  <h3>ネイル投稿詳細一覧</h3>
-  <div class="row">
-  </div>
-    <div class="col">
-  <table>
-    <tr>
-      <td><%= image_tag @nail.user.get_profile_image, size: '50x50' %></td>
-      <td><%= @nail.user.name %></td>
-      <td><% if @nail.image.attached? %>
-            <%= image_tag @nail.image, size: "200x200" %>
+<div class="container">
+  <h3 class="text-center">ネイル投稿詳細一覧</h3>
+  <%= image_tag @nail.user.get_profile_image, size: '100x100' %>
+  <br>
+  <%= @nail.user.name %>
+    <div class="row">
+      <div class="col">
+        <% if @nail.image.attached? %>
+          <%= image_tag @nail.image, size: "500x500" %>
           <% else %>
-            <%= image_tag 'no_image', size: "200x200" %>
-          <% end %>
-      </td>
-      <td><%= @nail.introduction %></td>
-    </tr>
-  </table>
-  </div>
-  <% if @nail.user == current_user %>
-  <%= link_to "削除", @nail, method: :delete, class: "btn btn-sm btn-danger" %>
-  <%= link_to "編集", edit_nail_path(@nail.id), class: "btn btn-sm btn-success" %>
-  <% end %>
-</div>
-
-<div>
-  <p>コメント件数: <%= @nail.nail_comments.count %></p>
-  
-  <% @nail.nail_comments.each do |nail_comment| %>
-    <p><%= image_tag nail_comment.user.get_profile_image, size: "50x50" %></p>
-    <%= nail_comment.user.name %>
-    <%= nail_comment.created_at.strftime('%Y/%m/%d') %><%= nail_comment.comment %>
-    <% if nail_comment.user == current_user %>
-      <%= link_to "コメントの削除" ,nail_nail_comment_path(nail_comment.nail, nail_comment), method: :delete %>
-    <% end %>
-  <% end %>
+          <%= image_tag 'no_image', size: "200x200" %>
+        <% end %>
+        <%= @nail.introduction %>
+        <% if @nail.user == current_user %>
+        <%= link_to "削除", @nail, method: :delete, class: "btn btn-sm btn-danger" %>
+        <%= link_to "編集", edit_nail_path(@nail.id), class: "btn btn-sm btn-success" %>
+        <% end %>
+        <p>コメント数: <%= @nail.nail_comments.count %></p>
+      </div>
+    </div>
+  <div>
     
-    <% if @nail.favorited_by?(current_user) %>
-    <p>
-      <%= link_to nail_favorites_path(@nail), method: :delete do %>
-      ♥<%= @nail.favorites.count %>
+    
+    <% @nail.nail_comments.each do |nail_comment| %>
+      <p><%= image_tag nail_comment.user.get_profile_image, size: "50x50" %></p>
+      <%= nail_comment.user.name %>
+      <%= nail_comment.created_at.strftime('%Y/%m/%d') %><%= nail_comment.comment %>
+      <% if nail_comment.user == current_user %>
+        <%= link_to "コメントの削除" ,nail_nail_comment_path(nail_comment.nail, nail_comment), method: :delete %>
       <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to nail_favorites_path(@nail), method: :post do %>
-      ♡<%= @nail.favorites.count %>
-      <% end %>
-    </p>
     <% end %>
-</div>
-
-<div>
-  <%= form_with model:[@nail,@nail_comment] do |f| %>
-  <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-  <%= f.submit "送信する" %>
-  <% end %>
+      
+      <% if @nail.favorited_by?(current_user) %>
+      <p>
+        <%= link_to nail_favorites_path(@nail), method: :delete do %>
+        ♥<%= @nail.favorites.count %>
+        <% end %>
+      </p>
+      <% else %>
+      <p>
+        <%= link_to nail_favorites_path(@nail), method: :post do %>
+        ♡<%= @nail.favorites.count %>
+        <% end %>
+      </p>
+      <% end %>
+  </div>
+  
+  <div>
+    <%= form_with model:[@nail,@nail_comment] do |f| %>
+    <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+    <% end %>
+  </div>
 </div>
