@@ -1,5 +1,12 @@
-<div class="text-center">
+<div class="container text-center">
 <h1>新規投稿</h1>
+  <% if @nail.errors.any? %>
+  <p>以下の記述が正しくありません。</p>
+    <%= @nail.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+    <% end %>
+  <% end %>
+  
 <%= form_with model:@nail, url: nails_path, method: :post, local:true do |f| %>
 <br>
 <%= f.file_field :image, accept: "image/*" %>

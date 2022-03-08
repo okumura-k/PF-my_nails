@@ -26,8 +26,11 @@ class NailsController < ApplicationController
   def create
     @nail = Nail.new(nail_params)
     @nail.user_id = current_user.id
-    @nail.save
-    redirect_to nail_path(@nail.id)
+    if @nail.save
+     redirect_to nail_path(@nail.id)
+    else
+     render :new
+    end 
   end
 
   def destroy

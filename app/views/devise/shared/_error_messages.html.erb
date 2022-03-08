@@ -13,3 +13,9 @@
     </ul>
   </div>
 <% end %>
+<% if @user.errors.any? %>
+      <p>以下の記述が正しくありません。</p>
+        <%= @user.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+        <% end %>
+      <% end %>

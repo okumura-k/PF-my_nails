@@ -5,6 +5,8 @@ class Nail < ApplicationRecord
   
   has_one_attached :image
   
+  validates :image, presence: true
+  validates :introduction, presence: true
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
