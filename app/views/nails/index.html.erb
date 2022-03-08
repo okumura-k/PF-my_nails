@@ -1,18 +1,16 @@
+<div class="container">
 <h3 class="text-center">ネイル投稿一覧</h3>
-<table>
+  <div class="row">
     <% @nails.each do |nail| %>
-  <tr>
-    <td><% if nail.image.attached? %>
-          <%= image_tag nail.image, size: "200x200" %>
-        <% else %>
-          <%= image_tag 'no_image', size: "200x200" %>
-        <% end %>
-    </td>
-    <td><%= image_tag nail.user.get_profile_image, size: '50x50' %></td>
-    <td><%= nail.user.name %></td>
-    <td><%= nail.introduction %></td>
-    <td><%= link_to "#{nail.nail_comments.count} コメント", nail_path(nail.id) %></td>
-  </tr>
-</table>
+    <div class="col">
+        <%= image_tag nail.image, size: "200x200" %><br>
+        <%= image_tag nail.user.get_profile_image, size: '50x50' %>
+        <%= nail.user.name %><br>
+        <%= nail.introduction %><br>
+        <%= link_to "#{nail.nail_comments.count} コメント数", nail_path(nail.id) %>
+        <p>いいねの合計数</p>
+    </div>
     <% end %>
+  </div>
     <%= paginate @nails %>
+</div>

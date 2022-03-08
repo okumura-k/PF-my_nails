@@ -7,12 +7,14 @@ Rails.application.routes.draw do
   resources :nails, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :nail_comments, only: [:create, :destroy]
+    
      collection do
       get :search
      end
   end
 
   resources :users, only: [:index, :show, :edit, :update] do
+    resources :relationships, only: [:index, :create, :show]
     collection do
       get :search
     end
