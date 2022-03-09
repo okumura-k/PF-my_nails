@@ -10,6 +10,8 @@
         </div>
            <% if current_user.id == @user.id %>
         <td><%= link_to "編集", edit_user_path(@user.id), class: "btn btn-sm btn-success" %></td>
+        <td><%= link_to "フォロー", followings_user_path(@user) %></td>
+        <td><%= link_to "フォロワー", followers_user_path(@user) %></td>
         <% end %>
       </tr>
     </table>

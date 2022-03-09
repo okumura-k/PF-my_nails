@@ -3,14 +3,19 @@
   <div class="row">
     <% @nails.each do |nail| %>
     <div class="col">
-        <%= image_tag nail.image, size: "200x200" %><br>
+        <%= link_to  nail_path(nail.id) do %>
+        <%= image_tag nail.image, size: "200x200" %>
+        <% end %>
+        <br>
         <%= image_tag nail.user.get_profile_image, size: '50x50' %>
         <%= nail.user.name %><br>
         <%= nail.introduction %><br>
-        <%= link_to "#{nail.nail_comments.count} コメント数", nail_path(nail.id) %>
-        <p>いいねの合計数</p>
+        <p>コメント数 <%= nail.nail_comments.count %>
+        いいね数全件</p>
+        
     </div>
     <% end %>
+    
   </div>
     <%= paginate @nails %>
 </div>

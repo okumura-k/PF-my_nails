@@ -18,9 +18,7 @@
         <p>コメント数: <%= @nail.nail_comments.count %></p>
       </div>
     </div>
-  <div>
-    
-    
+  <div class="row">
     <% @nail.nail_comments.each do |nail_comment| %>
       <p><%= image_tag nail_comment.user.get_profile_image, size: "50x50" %></p>
       <%= nail_comment.user.name %>
@@ -29,7 +27,7 @@
         <%= link_to "コメントの削除" ,nail_nail_comment_path(nail_comment.nail, nail_comment), method: :delete %>
       <% end %>
     <% end %>
-      
+
       <% if @nail.favorited_by?(current_user) %>
       <p>
         <%= link_to nail_favorites_path(@nail), method: :delete do %>
@@ -43,8 +41,17 @@
         <% end %>
       </p>
       <% end %>
+      <% if current_user != @nail.user %>
+      <div class="nail-like">
+      <% if @nail.liked_by(current_user).blank? %>
+        <%= link_to "お気に入りに保存", nail_likes_path(@nail), method: :post, class: "btn btn-success btn-sm" %>
+      <% else %>
+        <%= link_to "保存済み", nail_like_path(@nail,@nail.liked_by(current_user)), method: :delete, class: "btn btn-outline-success btn-sm" %>
+      <% end %>
+      </div>
+    <% end %>
   </div>
-  
+
   <div>
     <%= form_with model:[@nail,@nail_comment] do |f| %>
     <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
