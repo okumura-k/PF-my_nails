@@ -14,6 +14,7 @@ import "channels"
 // import "bootstrap"
 import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
+
 // import "jquery"
 import "skippr.min"
 import "script.js"
