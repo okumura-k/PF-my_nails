@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :nails, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :nail_comments, only: [:create, :destroy]
-    resources :likes, only: [:create, :destroy]
      collection do
       get :search
      end
@@ -15,12 +14,12 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show, :edit, :update] do
     resources :relationships, only: [:index, :create, :show, :destroy]
-    member do
-      get :followings, :followers
-    end
+    get 'followings' => 'relationships#followings', as: 'followings'
+    get 'followers' => 'relationships#followers', as: 'followers'
+    get "favorites" => 'favorites#index'
     collection do
       get :search
-      get :favorites
+      
     end
   end
 

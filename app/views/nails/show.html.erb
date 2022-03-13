@@ -41,15 +41,6 @@
         <% end %>
       </p>
       <% end %>
-      <% if current_user != @nail.user %>
-      <div class="nail-like">
-      <% if @nail.liked_by(current_user).blank? %>
-        <%= link_to "お気に入りに保存", nail_likes_path(@nail), method: :post, class: "btn btn-success btn-sm" %>
-      <% else %>
-        <%= link_to "保存済み", nail_like_path(@nail,@nail.liked_by(current_user)), method: :delete, class: "btn btn-outline-success btn-sm" %>
-      <% end %>
-      </div>
-    <% end %>
   </div>
 
   <div>

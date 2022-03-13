@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_09_040737) do
+ActiveRecord::Schema.define(version: 2022_03_08_134743) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -47,15 +47,6 @@ ActiveRecord::Schema.define(version: 2022_03_09_040737) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "nail_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["nail_id"], name: "index_likes_on_nail_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
-  end
-
   create_table "nail_comments", force: :cascade do |t|
     t.text "comment"
     t.integer "user_id"
@@ -74,13 +65,10 @@ ActiveRecord::Schema.define(version: 2022_03_09_040737) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer "user_id"
     t.integer "follower_id"
+    t.integer "followed_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["follower_id"], name: "index_relationships_on_follower_id"
-    t.index ["user_id", "follower_id"], name: "index_relationships_on_user_id_and_follower_id", unique: true
-    t.index ["user_id"], name: "index_relationships_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,8 +86,4 @@ ActiveRecord::Schema.define(version: 2022_03_09_040737) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "likes", "nails"
-  add_foreign_key "likes", "users"
-  add_foreign_key "relationships", "users"
-  add_foreign_key "relationships", "users", column: "follower_id"
 end

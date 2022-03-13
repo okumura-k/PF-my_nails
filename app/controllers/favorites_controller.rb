@@ -1,5 +1,8 @@
 class FavoritesController < ApplicationController
 
+  def index 
+    
+  end 
   
   def create
     nail = Nail.find(params[:nail_id])

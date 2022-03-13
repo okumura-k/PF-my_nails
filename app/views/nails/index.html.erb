@@ -10,12 +10,12 @@
         <%= image_tag nail.user.get_profile_image, size: '50x50' %>
         <%= nail.user.name %><br>
         <%= nail.introduction %><br>
-        <p>コメント数 <%= nail.nail_comments.count %>
-        いいね数全件</p>
-        
+        <p>コメント数 <%= nail.nail_comments.count %></p>
+        <p>いいね数 <%= nail.favorites.count %></p>
+
     </div>
     <% end %>
-    
+
   </div>
     <%= paginate @nails %>
 </div>

@@ -15,15 +15,6 @@
           <th>メールアドレス</th>
           <td><%= f.text_field :email,placeholder:"nail@my_nails.com",autofocus: true %></td>
         </tr>
-        <tr>
-          <th>パスワード</th>
-          <td>
-            <%= f.password_field :password,placeholder:"6文字以上" %></td>
-        </tr>
-        <tr>
-          <th>パスワード（確認用）</th>
-          <td><%= f.password_field :password_confirmation,placeholder:"同上", autocomplete: "new-password" %></td>
-        </tr>
       </table>
       <%= f.submit "編集を保存",class: 'btn btn-sm btn-success' %>
       <% end %>

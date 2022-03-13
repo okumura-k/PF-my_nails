@@ -1,7 +1,6 @@
-<% if user_signed_in? && current_user.id != @user.id %>
-  <% if current_user.following?(@user) %>
-    <%= button_to "フォロー解除", relationship_path(current_user.relationships.find_by(follower: @user)), method: :delete, remote: true %>
+
+  <% if current_user.following?(user) %>
+    <%= link_to "フォロー外す", user_relationships_path(user.id), method: :delete, class: "btn btn-info" %>
   <% else %>
-    <%= button_to "フォロー", relationships_path(follower: @user), method: :post, remote: true %>
+    <%= link_to "フォローする", user_relationships_path(user.id), method: :post, class: "btn btn-success" %>
   <% end %>
-<% end %>
