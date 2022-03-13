@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="container bg-light text-center">
 <h1>新規投稿</h1>
   <% if @nail.errors.any? %>
   <p>以下の記述が正しくありません。</p>
@@ -6,13 +6,21 @@
     <p><%= message %></p>
     <% end %>
   <% end %>
-  
-<%= form_with model:@nail, url: nails_path, method: :post, local:true do |f| %>
-<br>
-<%= f.file_field :image, accept: "image/*" %>
-<br>
-<%= f.text_area :introduction,size: "50x5", placeholder: "ネイルの感想　お気に入りポイント" %>
-<br>
-<%= f.submit "新規投稿" %>
-<% end %>
+  <div class="row">
+    <div class="col">
+      <%= form_with model:@nail, url: nails_path, method: :post, local:true do |f| %>
+      <%= f.file_field :image, accept: "image/*" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= f.text_area :introduction,size: "50x5", placeholder: "ネイルの感想　お気に入りポイント" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= f.submit "新規投稿" %>
+      <% end %>
+    </div>
+  </div>
 </div>

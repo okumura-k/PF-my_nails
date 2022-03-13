@@ -5,7 +5,7 @@
         <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
         <li>
-          <%= link_to "mypage",user_path(current_user) %>
+          <%= link_to "ユーザーの画",user_path(current_user), class: "mt-3 rounded-circle" %>
         </li>
         <li>
           <%= link_to "新規投稿",new_nail_path,class: 'btn btn-sm btn-light' %>
@@ -14,7 +14,7 @@
           <%= link_to "ネイル投稿一覧",nails_path,class: 'btn btn-sm btn-light' %>
         </li>
         <li>
-          <%= link_to "ユーザー一覧",users_path, class: 'btn btn-sm btn-light' %>
+          <%= link_to "会員一覧",users_path, class: 'btn btn-sm btn-light' %>
         </li>
         <li>
           <%= link_to "ログアウト",destroy_user_session_path,method: :delete,class: 'btn btn-sm btn-light' %>
