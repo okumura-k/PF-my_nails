@@ -30,7 +30,7 @@ class NailsController < ApplicationController
      redirect_to nail_path(@nail.id)
     else
      render :new
-    end 
+    end
   end
 
   def destroy
@@ -38,7 +38,7 @@ class NailsController < ApplicationController
     @nail.destroy
     redirect_to nails_path
   end
-  
+
   private
   def nail_params
     params.require(:nail).permit(:image, :introduction)

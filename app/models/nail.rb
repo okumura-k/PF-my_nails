@@ -15,4 +15,13 @@ class Nail < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
+  
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Nail.where(introduction: content)
+    else
+      Nail.where('introduction LIKE ?', '%'+content+'%')
+    end
+  end
+  
 end

@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="/"><span class="text-light">My_nails</span></a>
+      <a class="navbar-brand" href="/"><%= image_tag 'logo.jpg', size: '120x80' %></a>
         <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
         <li>
@@ -34,6 +34,16 @@
         </li>
       <% end %>
       </ul>
+      <div class="serch_form">
+          <%= form_with url: search_path,method: :get, local: true do |f| %>
+            <%= f.text_field :content, placeholder: "キーワード検索", class: "search-text" %>
+            <%= f.select :model,options_for_select({"会員"=>"user","ネイル"=>"nail"})%>
+            <%= f.select :method,options_for_select({"完全一致"=>"perfect","部分一致"=>"partial"})%>
+            <%= f.submit'検索', class: "btn btn-default" do %>
+            <i class="fas fa-search"></i>
+            <% end %>
+          <% end %>
+      </div>
     </div>
   </nav>
   <p class="border"></p>

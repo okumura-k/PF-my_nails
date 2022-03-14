@@ -7,32 +7,33 @@
       <tr>
         <th><%= link_to "フォロー", user_followings_path(@user) %></th>
         <th><%= link_to "フォロワー", user_followers_path(@user) %></th>
-        <th><%= link_to "お気に入り" , user_favorites_path(@user) %></th>
+        <th><%= link_to "お気に入り" , favorites_user_path(@user) %></th>
       </tr>
       <tr>
-        <td>ふォロー数</td>
-        <td>フォロわー数</td>
-        <td>お気に入りした数</td>
-        <td><%#= render "relationships/relationship" %></td>
+        <td><%= @user.followings.count %></td>
+        <td><%= @user.followers.count %></td>
+        <td><%#= @user.favorite_nail.count %></td>
       </tr>
-      
+
     </table>
     <div>
       <% if current_user.id == @user.id %>
       <%= link_to "編集", edit_user_path(@user.id), class: "btn btn-sm btn-success" %>
       <% end %>
     </div>
-    
+
   </div>
-  
+
   <div class="mb-3 mt-3 ">
-    <% if current_user.following?(@user) %>
-      <%= link_to "フォロー外す", user_relationship_path(@user.id), method: :delete, class: "btn btn-sm btn-danger" %>
-    <% else %>
-      <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-sm btn-primary" %>
+    <% if current_user != @user %>
+      <% if current_user.following?(@user) %>
+        <%= link_to "フォロー外す", user_relationship_path(@user.id), method: :delete, class: "btn btn-sm btn-danger" %>
+      <% else %>
+        <%= link_to "フォローする", user_relationships_path(@user.id), method: :post, class: "btn btn-sm btn-primary" %>
+      <% end %>
     <% end %>
   </div>
-  
+
   <div class="row">
     <% @nails.each do |nail| %>
     <div class="col">

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:followings, :followers]
+  before_action :set_user, only: [:followings, :followers, :favorites]
 
   def index
     @users = User.all
@@ -31,6 +31,13 @@ class UsersController < ApplicationController
   def followers
     @users = @user.followers
   end
+  
+  def favorites
+    @user = User.find(params[:id])
+    favorites = Favorite.where(user_id: @user.id).pluck(:nail_id)
+    @favorite_nails = Nail.find(favorites)
+  end 
+    
 
   private
 
