@@ -2,7 +2,7 @@ class Nail < ApplicationRecord
   belongs_to :user
   has_many :nail_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
-
+  has_many :favorited_users, through: :favorites, source: :user
   has_one_attached :image
 
   validates :image, presence: true

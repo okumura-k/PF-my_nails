@@ -1,16 +1,17 @@
 class NailCommentsController < ApplicationController
   
   def create
-    nail = Nail.find(params[:nail_id])
+    @nail = Nail.find(params[:nail_id])
     comment = current_user.nail_comments.new(nail_comment_params)
-    comment.nail_id = nail.id
+    comment.nail_id = @nail.id
     comment.save
-    redirect_to nail_path(nail)
+    redirect_to request.referer
   end 
   
   def destroy
+    @nail = Nail.find(params[:nail_id])
     NailComment.find(params[:id]).destroy
-    redirect_to nail_path(params[:nail_id])
+    redirect_to request.referer
   end 
   
   private

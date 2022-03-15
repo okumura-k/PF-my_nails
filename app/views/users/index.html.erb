@@ -16,10 +16,11 @@
             <%= image_tag user.get_profile_image, size: '100x100' %><br>
             <%= user.name %>
             <% end %>
-      <% end %>
+      
           </td>
-          <td></td>
-          <td></td>
+          <td><%= user.nails.count %></td>
+          <td><%= user.followers.count %></td>
+      <% end %> 
         </tr>
     </tbody>
   </table>
