@@ -2,7 +2,6 @@ class NailsController < ApplicationController
 
   def index
     @nails = Nail.page(params[:page])
-    @nails = Nail.includes(:favorited_users).sort {|a,b| b.favorited_users.size <=> a.favorited_users.size}
   end
 
   def edit

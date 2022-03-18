@@ -7,7 +7,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @nails = @user.nails.page(params[:page])
+    if params[:sort] == "new_arrival_order"
+      @nail = @user.nails.page(params[:page]).order(created_at: :desc)
+    elsif params[:sort] == "posting_order"
+      @nail = @user.nails.page(params[:page]).order(created_at: :asc)
+    elsif params[:sort] == "many_favorite"
+      @nail = @user.nails.page(params[:page]).order(favorite: :desc)
+    else
+      @nail = @user.nails.page(params[:page]).order(created_at: :desc)
+    end
   end
 
   def edit

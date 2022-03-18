@@ -34,8 +34,14 @@
     <% end %>
   </div>
 
+  <span><%= link_to "新着順",user_path(sort: "new_arrival_order"), class: "btn btn-sm btn-link" %></span>
+      <span>|</span>
+      <span><%= link_to "投稿順",user_path(sort: "posting_order"), class: "btn btn-sm btn-link" %></span>
+      <span>|</span>
+      <span><%= link_to "いいねが多い順",user_path(sort: "many_favorite"), class: "btn btn-sm btn-link" %></span>
+      
   <div class="row">
-    <% @nails.each do |nail| %>
+    <% @nail.each do |nail| %>
     <div class="col">
         <%= link_to nail_path(nail.id) do %>
         <%= image_tag nail.image, size: "200x200" %>
@@ -45,5 +51,5 @@
     </div>
     <% end %>
   </div>
-  <%= paginate @nails %>
+  <%= paginate @nail %>
 </div>
