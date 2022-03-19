@@ -5,8 +5,10 @@
         <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
         <li>
-          <%#= image_tag @user.get_profile_image, size: '200x200' %>
-          <%= link_to "ユーザーの画",user_path(current_user), class: "mt-3 rounded-circle" %>
+
+          <%= link_to user_path(current_user)  do %>
+             <%= image_tag current_user.get_profile_image, size: '80x80', class: "rounded-circle" %>
+          <% end %>
           <%#= link_to "", "#", class: "nav-link commonNavIcon profile-icon" %>
         </li>
         <li>
@@ -45,5 +47,5 @@
       </div>
     </div>
   </nav>
-  
+
 </header>

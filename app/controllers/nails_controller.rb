@@ -2,6 +2,15 @@ class NailsController < ApplicationController
 
   def index
     @nails = Nail.page(params[:page])
+    if params[:sort] == "new_arrival_order"
+      @nails = Nail.page(params[:page]).order(created_at: :desc)
+    elsif params[:sort] == "posting_order"
+      @nails = Nail.page(params[:page]).order(created_at: :asc)
+    elsif params[:sort] == "many_favorite"
+      @nails = Nail.left_joins(:favorites).group(:id).order('count(favorites.nail_id) desc').page(params[:page])
+    else
+      @nails = Nail.page(params[:page]).order(created_at: :desc)
+    end
   end
 
   def edit
