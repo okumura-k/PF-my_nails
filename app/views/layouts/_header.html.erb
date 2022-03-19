@@ -21,9 +21,6 @@
         </li>
       <% else %>
         <li>
-          <%= link_to "サイト説明",about_path,class: 'btn btn-sm btn-light' %>
-        </li>
-        <li>
           <%= link_to "新規登録",new_user_registration_path,class: 'btn btn-sm btn-light' %>
         </li>
         <li>
@@ -39,12 +36,12 @@
             <%= f.text_field :content, placeholder: "キーワード検索", class: "search-text" %>
             <%= f.select :model,options_for_select({"会員"=>"user","ネイル"=>"nail"})%>
             <%= f.select :method,options_for_select({"完全一致"=>"perfect","部分一致"=>"partial"})%>
-            <%= f.submit'検索', class: "btn btn-default" do %>
+            <%= f.submit'検索', class: "btn btn-sm btn-light" do %>
             <i class="fas fa-search"></i>
             <% end %>
           <% end %>
       </div>
     </div>
   </nav>
-  <p class="border"></p>
+  
 </header>
