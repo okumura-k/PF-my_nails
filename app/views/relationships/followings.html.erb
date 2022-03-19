@@ -13,7 +13,7 @@
       </head>
       <tbody>
         <tr>
-          <td><%= image_tag user.get_profile_image, size: '50x50' %>
+          <td><%= image_tag user.get_profile_image, size: '50x50', class: "rounded-circle" %>
               <%= user.name %>
           </td>
           <td><%= user.followings.count %></td>

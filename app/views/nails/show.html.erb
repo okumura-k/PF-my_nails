@@ -6,9 +6,9 @@
     <div class="row">
       <div class="col">
         <% if @nail.image.attached? %>
-          <%= image_tag @nail.image, size: "500x500" %>
+          <%= image_tag @nail.image, size: "500x500", class: "rounded-circle" %>
           <% else %>
-          <%= image_tag 'no_image', size: "200x200" %>
+          <%= image_tag 'no_image', size: "200x200",  %>
         <% end %>
         <%= @nail.introduction %>
         <% if @nail.user == current_user %>
@@ -20,7 +20,7 @@
     </div>
   <div class="row">
     <% @nail.nail_comments.each do |nail_comment| %>
-      <p><%= image_tag nail_comment.user.get_profile_image, size: "50x50" %></p>
+      <p><%= image_tag nail_comment.user.get_profile_image, size: "50x50", class: "rounded-circle" %></p>
       <%= nail_comment.user.name %>
       <%= nail_comment.created_at.strftime('%Y/%m/%d') %><%= nail_comment.comment %>
       <% if nail_comment.user == current_user %>

@@ -7,7 +7,7 @@
         <%= image_tag nail.image, size: "200x200" %>
         <% end %>
         <br>
-        <%= image_tag nail.user.get_profile_image, size: '50x50' %>
+        <%= image_tag nail.user.get_profile_image, size: '50x50', class: "rounded-circle" %>
         <%= nail.user.name %><br>
         <%= nail.introduction %><br>
         <p>コメント数 <%= nail.nail_comments.count %></p>

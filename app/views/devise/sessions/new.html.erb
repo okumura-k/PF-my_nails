@@ -1,28 +1,20 @@
 <div class="text-center container">
+  <h3>ログイン</h3>
   <div class="row">
     <div class="col">
-        <h3>ログイン</h3><br>
-
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-          <div class="field col-7 mx-auto row">
-            <div class="col-5">
-              <%= f.label :メールアドレス %>
-            </div>
-            <%= f.email_field :email,placeholder:"nail@my_nails.com", autofocus: true, autocomplete: "email" %>
-          </div>
-          <br>
-          <div class="field col-7 mx-auto row">
-            <div class="col-5">
-              <%= f.label :パスワード %>
-            </div>
-            <%= f.password_field :password,placeholder:"6文字以上", autocomplete: "current-password" %>
-          </div>
-          <br>
-          <div class="actions col-2 mx-auto">
-            <%= f.submit "ログイン",url: nails_path,class: 'btn btn-sm btn-primary' %>
-          </div>
-        <% end %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <table class ="table table-borderless">
+        <tr>
+          <th><%= f.label :メールアドレス %></th>
+          <td><%= f.email_field :email,placeholder:"nail@my_nails.com", autofocus: true, autocomplete: "email" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :パスワード %></th>
+          <td><%= f.password_field :password,placeholder:"6文字以上", autocomplete: "current-password" %></td>
+        </tr>
+      </table>
+      <%= f.submit "ログイン",url: nails_path,class: 'btn btn-sm btn-primary' %>
+      <% end %>
     </div>
   </div>
 </div>
