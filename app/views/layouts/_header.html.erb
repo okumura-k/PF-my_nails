@@ -2,14 +2,12 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container">
       <a class="navbar-brand" href="/"><%= image_tag 'logo.jpg', size: '120x80' %></a>
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav d-flex align-items-center">
       <% if user_signed_in? %>
         <li>
-
           <%= link_to user_path(current_user)  do %>
              <%= image_tag current_user.get_profile_image, size: '80x80', class: "rounded-circle" %>
           <% end %>
-          <%#= link_to "", "#", class: "nav-link commonNavIcon profile-icon" %>
         </li>
         <li>
           <%= link_to "新規投稿",new_nail_path,class: 'btn btn-sm btn-light' %>
@@ -19,9 +17,6 @@
         </li>
         <li>
           <%= link_to "会員一覧",users_path, class: 'btn btn-sm btn-light' %>
-        </li>
-        <li>
-          <%= link_to "ログアウト",destroy_user_session_path,method: :delete,class: 'btn btn-sm btn-light' %>
         </li>
       <% else %>
         <li>

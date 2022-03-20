@@ -19,6 +19,7 @@
     <div>
       <% if current_user.id == @user.id %>
       <%= link_to "編集", edit_user_path(@user.id), class: "btn btn-sm btn-success" %>
+      <%= link_to "ログアウト",destroy_user_session_path,method: :delete,class: 'btn btn-sm btn-light' %>
       <% end %>
     </div>
 

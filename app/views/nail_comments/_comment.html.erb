@@ -1,0 +1,8 @@
+<div id="comment_<%=nail_comment.id%>">
+  <p><%= image_tag nail_comment.user.get_profile_image, size: "50x50", class: "rounded-circle" %></p>
+  <%= nail_comment.user.name %>
+  <%= nail_comment.created_at.strftime('%Y/%m/%d') %><%= nail_comment.comment %>
+  <% if nail_comment.user == current_user %>
+    <%= link_to "コメントの削除" , nail_nail_comment_path(nail_comment.nail, nail_comment), method: :delete, remote: true %>
+  <% end %>
+</div>

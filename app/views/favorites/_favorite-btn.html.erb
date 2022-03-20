@@ -1,0 +1,13 @@
+ <% if nail.favorited_by?(current_user) %>
+      <p>
+        <%= link_to nail_favorites_path(nail), method: :delete, remote: true do %>
+          ♥<%= nail.favorites.count %>
+        <% end %>
+      </p>
+      <% else %>
+      <p>
+        <%= link_to nail_favorites_path(nail), method: :post, remote: true do %>
+         ♡<%= nail.favorites.count %>
+        <% end %>
+      </p>
+      <% end %>
