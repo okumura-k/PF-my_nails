@@ -1,11 +1,18 @@
-<h3 class="text-center">お気に入り一覧</h3>
-<span><%= link_to "新着順",favorites_user_path(@user, sort: "new_arrival_order"), class: "btn btn-sm btn-link" %></span>
-      <span>|</span>
-      <span><%= link_to "投稿順",favorites_user_path(@user, sort: "posting_order"), class: "btn btn-sm btn-link" %></span>
-      <span>|</span>
-      <span><%= link_to "いいねが多い順",favorites_user_path(@user, sort: "many_favorite"), class: "btn btn-sm btn-link" %></span>
- <% @favorite_nails.each do  |fn| %>
-   <%= image_tag fn.image, size: "200x200" %>
-   <%= fn.user.name %>
-   <%= fn.introduction %>
- <% end %>
+<div class="container text-center">
+  <h3 class="text-center mt-3">お気に入り一覧</h3>
+  <span><%= link_to "新着順",favorites_user_path(@user, sort: "new_arrival_order"), class: "btn btn-sm btn-link" %></span>
+  <span>|</span>
+  <span><%= link_to "投稿順",favorites_user_path(@user, sort: "posting_order"), class: "btn btn-sm btn-link" %></span>
+  <span>|</span>
+  <span><%= link_to "いいねが多い順",favorites_user_path(@user, sort: "many_favorite"), class: "btn btn-sm btn-link" %></span>
+    <div class="row">
+      <% @favorite_nails.each do  |nail| %>    
+          <div class="col mt-5">
+            <%= link_to  nail_path(nail.id) do %>
+             <%= image_tag nail.image, size: "200x200" %>
+             <% end %><br>
+             いいね数 <%= nail.favorites.count %>
+          </div>
+     <% end %>    
+    </div>
+</div>
