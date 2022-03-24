@@ -3,28 +3,29 @@
     <% if @model == "user" %>
     <h2 class="text-center">'<%= @content %>'の検索結果</h2>
     <table class="table">
-        <thead>
-            <tr>
-                <th></th>
-                <th>ユーザー名</th>
-            </tr>
-        </thead>
+      <thead>
+        <tr>
+          <th>プロフィール画像</th>
+          <th>ユーザー名</th>
+        </tr>
+      </thead>
     <% @records.each do |user| %>
         <tbody>
-            <tr>
-                <th>
-                    <%#= attachment_image_tag(user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40') %>
-                </th>
-                <th>
-                    <%= user.name %>
-                </th>
-                
-            </tr>
+        　<tr>
+    　    　 <th>
+             <%= link_to user_path(user.id) do %>
+               <%= image_tag user.get_profile_image, size: '100x100', class: "rounded-circle" %>
+             <% end %>
+            </th>
+            <th>
+              <%= user.name %>
+            </th>
+          </tr>
         </tbody>
     <% end %>
     <% elsif @model == "nail" %>
     <h2 class="text-center"> '<%= @content %>'の検索結果</h2>
-    <table class="table">
+     <table class="table">
         <thead>
             <tr>
                 <th>nail画像</th>
@@ -33,14 +34,16 @@
         </thead>
         <% @records.each do |nail| %>
         <tbody>
-            <tr>
-                <th>
-                    <%#= attachment_image_tag(book.user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg", size:'40x40') %>
-                </th>
-                <th>
-                    <%= nail.introduction %>
-                </th>
-            </tr>
+          <tr>
+            <th>
+              <%= link_to  nail_path(nail.id) do %>
+                <%= image_tag nail.image, size: "200x200" %>
+              <% end %>
+            </th>
+            <th>
+              <%= nail.introduction %>
+            </th>
+           </tr>
         </tbody>
         <% end %>
     <% end %>

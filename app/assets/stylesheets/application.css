@@ -17,3 +17,16 @@
 body{
   font-family: 'Zen Maru Gothic', sans-serif;
 }
+
+footer{
+  padding-top: 100px;
+}
+
+.s-link{
+  padding-top: 30px;
+}
+
+.serch_form{
+  padding: 10px;
+  text-align: right;
+}
