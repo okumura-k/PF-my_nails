@@ -8,20 +8,22 @@
       <span><%= link_to "いいねが多い順",nails_path(sort: "many_favorite"), class: "btn btn-sm btn-link" %></span>
   <div class="row mt-3">    
     <% @nails.each do |nail| %>
-    <div class="col">
+    <div class="nail-list col">
         <%= link_to  nail_path(nail.id) do %>
-        <%= image_tag nail.image, size: "200x200" %>
+          <%= image_tag nail.image, size: "200x200" %>
         <% end %>
         <br>
         <%= image_tag nail.user.get_profile_image, size: '50x50', class: "rounded-circle" %>
         <%= nail.user.name %><br>
         <%= nail.introduction %><br>
-        <p>コメント数 <%= nail.nail_comments.count %></p>
-        <p>いいね数 <%= nail.favorites.count %></p>
+        <span>コメント数 <%= nail.nail_comments.count %></span>
+        <span>いいね数 <%= nail.favorites.count %></span>
 
     </div>
     <% end %>
 
   </div>
+  <div class="page">
     <%= paginate @nails %>
+  </div>
 </div>

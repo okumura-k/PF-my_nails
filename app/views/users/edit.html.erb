@@ -1,6 +1,5 @@
-<div class="container text-center">
+<div class="container text-center fixed-center">
   <h3>プロフィール編集</h3>
-  <div class="row">
     <%= form_with model:@user do |f| %>
     <table class ="table table-borderless">
         <tr>
@@ -18,5 +17,4 @@
       </table>
       <%= f.submit "編集を保存",class: 'btn btn-sm btn-success' %>
       <% end %>
-  </div>
 </div>

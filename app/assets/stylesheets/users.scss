@@ -1,3 +1,23 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.table-list{
+  background-color: #ded8d9;
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-top: 20px;
+  padding-right: 50px;
+  margin-bottom: 50px;
+  padding-left: 0px;
+  width: 550px;
+}
+
+.current-btn{
+  margin-top: 20px;
+}
+
+.sort{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

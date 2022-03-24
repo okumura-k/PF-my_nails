@@ -3,34 +3,34 @@
     <div class="container">
       <a class="navbar-brand" href="/"><%= image_tag 'logo.jpg', size: '150x80' %></a>
         <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <li>
-            <%= link_to user_path(current_user)  do %>
-               <%= image_tag current_user.get_profile_image, size: '80x80', class: "rounded-circle" %>
-            <% end %>
-          </li>
-          <li>
-            <%= link_to "新規投稿",new_nail_path,class: 'btn btn-sm btn-light' %>
-          </li>
-          <li>
-            <%= link_to "ネイル投稿一覧",nails_path,class: 'btn btn-sm btn-light' %>
-          </li>
-          <li>
-            <%= link_to "会員一覧",users_path, class: 'btn btn-sm btn-light' %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to "新規登録",new_user_registration_path,class: 'btn btn-sm btn-light' %>
-          </li>
-          <li>
-            <%= link_to "ログイン",new_user_session_path,class: 'btn btn-sm btn-light' %>
-          </li>
-          <li>
-            <%= link_to "ネイル投稿一覧",nails_path,class: 'btn btn-sm btn-light' %>
-          </li>
-        <% end %>
-        </ul>
-      
+      <% if user_signed_in? %>
+        <li>
+          <%= link_to user_path(current_user)  do %>
+             <%= image_tag current_user.get_profile_image, size: '80x80', class: "rounded-circle" %>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "新規投稿",new_nail_path,class: 'btn btn-sm btn-light' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "ネイル投稿一覧",nails_path,class: 'btn btn-sm btn-light' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "会員一覧",users_path, class: 'btn btn-sm btn-light' %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to "新規登録",new_user_registration_path,class: 'btn btn-sm btn-light' %>
+        </li>
+        <li>
+          <%= link_to "ログイン",new_user_session_path,class: 'btn btn-sm btn-light' %>
+        </li>
+        <li>
+          <%= link_to "ネイル投稿一覧",nails_path,class: 'btn btn-sm btn-light' %>
+        </li>
+      <% end %>
+      </ul>
+
     </div>
   </nav>
 

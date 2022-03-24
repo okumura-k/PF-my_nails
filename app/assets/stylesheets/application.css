@@ -21,7 +21,9 @@ body{
 footer{
   padding-top: 100px;
 }
-
+.nav-item{
+  padding-top: 25px;
+}
 .s-link{
   padding-top: 30px;
 }
