@@ -10,13 +10,24 @@
           <% else %>
           <%= image_tag 'no_image', size: "200x200"  %>
         <% end %>
-        
+      </div>
+      <div class="col">
         <%= @nail.introduction %>
+
+        <p>コメント数: <%= @nail.nail_comments.count %></p>
+        <div class="favorite-btn">
+          <%= render 'favorites/favorite-btn', nail: @nail %>
+        </div>
+        <div class="comment">
+          <%= render 'nail_comments/form', nail: @nail, nail_comment: @nail_comment %>
+        </div>
+        
+      </div>
+      <div class="col">
         <% if @nail.user == current_user %>
-        <%= link_to "削除", @nail, method: :delete, class: "btn btn-sm btn-danger" %>
+        <%= link_to "削除", @nail, method: :delete, class: "btn btn-sm btn-danger" %><br><br>
         <%= link_to "編集", edit_nail_path(@nail.id), class: "btn btn-sm btn-success" %>
         <% end %>
-        <p>コメント数: <%= @nail.nail_comments.count %></p>
       </div>
     </div>
   <div class="row">
@@ -25,12 +36,5 @@
       <%= render 'nail_comments/comment', nail_comment: nail_comment %>
     <% end %>
     </div>
-    <div class="favorite-btn">
-      <%= render 'favorites/favorite-btn', nail: @nail %>
-    </div>
-  </div>
-
-  <div class="comment">
-    <%= render 'nail_comments/form', nail: @nail, nail_comment: @nail_comment %>
   </div>
 </div>
