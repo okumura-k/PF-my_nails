@@ -12,7 +12,7 @@ class Nail < ApplicationRecord
     (image.attached?) ? image : "no_image.jpg"
   end
 
-  def favorited_by?(user)
+  def favorited_by?(current_user)
     favorites.exists?(user_id: user.id)
   end
   

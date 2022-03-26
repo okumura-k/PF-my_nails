@@ -1,5 +1,7 @@
 class NailsController < ApplicationController
 
+  before_action :correct_user, only: [:edit, :update]
+
   def index
     @nails = Nail.page(params[:page])
     if params[:sort] == "new_arrival_order"
@@ -51,5 +53,11 @@ class NailsController < ApplicationController
   private
   def nail_params
     params.require(:nail).permit(:image, :introduction)
+  end
+
+  def correct_user
+    @nail = Nail.find(params[:id])
+    @user = @nail.user
+    redirect_to(nails_path) unless @user == current_user
   end
 end
