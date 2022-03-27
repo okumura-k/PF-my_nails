@@ -15,12 +15,14 @@
         <%= @nail.introduction %>
 
         <p>コメント数: <%= @nail.nail_comments.count %></p>
+        <% if @nail.user == current_user %>
         <div class="favorite-btn">
           <%= render 'favorites/favorite-btn', nail: @nail %>
         </div>
         <div class="comment">
           <%= render 'nail_comments/form', nail: @nail, nail_comment: @nail_comment %>
         </div>
+        <% end %>
         
       </div>
       <div class="col">
