@@ -34,8 +34,6 @@
 どんなネイルにしたいか決まっていない時
 ネイル好きな人と交流が取りたい時
 
-## 設計書
-発表後記載
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1NpD-K8xDSTJZNG1cGy7e1u-7R7SoPoNbFy1IpOosyp4/edit?usp=sharing
@@ -47,5 +45,3 @@ https://docs.google.com/spreadsheets/d/1NpD-K8xDSTJZNG1cGy7e1u-7R7SoPoNbFy1IpOos
 - JSライブラリ：jQuery
 - IDE：Cloud9
 
-## 使用素材
-使用時に記述
