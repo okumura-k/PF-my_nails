@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update]
   before_action :set_user, only: [:followings, :followers, :favorites]
 
   def index
     @users = User.all
-    
+
   end
 
   def show
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
-  
+
 
   def followings
     @users = @user.followings
@@ -40,7 +41,7 @@ class UsersController < ApplicationController
   def followers
     @users = @user.followers
   end
-  
+
   def favorites
     @user = User.find(params[:id])
     @favorite_nails = @user.favorited_nails
@@ -53,10 +54,8 @@ class UsersController < ApplicationController
      else
       @favorite_nails = @user.favorited_nails.page(params[:page]).order(created_at: :desc)
      end
-    #favorites = Favorite.where(user_id: @user.id).pluck(:nail_id)
-    #@favorite_nails = Nail.find(favorites)
-  end 
-    
+  end
+
 
   private
 
@@ -66,6 +65,13 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to user_path(current_user)
+    end
   end
 
 end
