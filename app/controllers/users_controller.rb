@@ -1,9 +1,17 @@
 class UsersController < ApplicationController
   before_action :ensure_correct_user, only: [:edit, :update]
   before_action :set_user, only: [:followings, :followers, :favorites]
+  # before_action :search
+  
+  # def search
+  #   @q = User.ransack(params[:q])
+  #   # params[:q]のqには検索フォームに入力した値が入る
+  # end 
 
   def index
     @users = User.all
+    # distinct: trueは重複したデータを除外
+    # @users = @q.result(distinct: true)
 
   end
 
