@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400&display=swap" rel="stylesheet">
@@ -13,26 +13,13 @@
     <%= stylesheet_link_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
   </head>
 
   <body style="background-color: #b096a6">
     <%= render 'layouts/header', user: @user %>
     <main>
-      <%#= search_form_for @q do |f| %>
-        <%#= f.text_field :name_cont %>
-        <%#= f.submit '検索' %>
-      <%# end %>
-      
-      <%# if @users.present? %>
-        <%# @users.each do |user| %>
-          <%# @user.id %>
-          <%# @user.name %>
-        <%# end %>
-      <%# else %>
-        <!--<p>検索結果がありません</p>-->
-      <%# end %>
-      
+
       <div class="serch_form">
           <%= form_with url: search_path,method: :get, local: true do |f| %>
             <%= f.text_field :content, placeholder: "キーワード検索", class: "search-text" %>
