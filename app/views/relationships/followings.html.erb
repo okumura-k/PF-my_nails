@@ -1,29 +1,30 @@
 <div class="container">
   <h2 class="text-center">フォロー一覧</h2>
-      <table class='table'>
-        <thead class="bg-light text-dark">
-          <tr>
-            <th>ユーザー</th>
-            <th>投稿数</th>
-            <th>フォロワー数</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% if @users.exists? %>
-          <% @users.each do |user| %>
-          <tr>
-            <td>
-              <%= link_to user_path(user.id) do %>
-                <%= image_tag user.get_profile_image, size: '100x100', class: "rounded-circle" %>
-              <% end %>
-              <%= user.name %>
-            </td>
-            <td><%= user.nails.count %></td>
-            <td><%= user.followers.count %></td>
-          </tr>
-          <% end %>
-          <% else %>
-            <p>ユーザーはいません</p>
-          <% end %>
-        </tbody>
-      </table>
+    <table class='table'>
+      <thead class="bg-light text-dark">
+        <tr>
+          <th>ユーザー</th>
+          <th>投稿数</th>
+          <th>フォロワー数</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @users.exists? %>
+        <% @users.each do |user| %>
+        <tr>
+          <td>
+            <%= link_to user_path(user.id) do %>
+              <%= image_tag user.get_profile_image, size: '100x100', class: "rounded-circle" %>
+            <% end %>
+            <%= user.name %>
+          </td>
+          <td><%= user.nails.count %></td>
+          <td><%= user.followers.count %></td>
+        </tr>
+        <% end %>
+        <% else %>
+          <p>ユーザーはいません</p>
+        <% end %>
+      </tbody>
+    </table>
+</div>
