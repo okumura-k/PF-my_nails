@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get "about" => 'homes#about'
   devise_for :users
-  
+
   resources :nails, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
     resources :nail_comments, only: [:create, :destroy]
@@ -16,8 +16,11 @@ Rails.application.routes.draw do
     get 'followers' => 'relationships#followers', as: 'followers'
     member do
       get :favorites
-    end 
+    end
   end
+
+  get 'chat/:id', to: 'chats#show', as: 'chat'
+  resources :chats, only: [:create]
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
