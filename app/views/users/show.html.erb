@@ -25,9 +25,8 @@
     </div>
     <div class="mb-3 mt-3 ">
       <% if current_user != @user %>
-        <%= render 'relationships/relationship', user: @user %><br>
-        <!-- current_userと@userが一致していない場合に`Begin Chat`を表示 -->
-        <%= link_to 'DMを送る', chat_path(@user.id) %>
+        <%= render 'relationships/relationship', user: @user %><br><br><br>
+        <%= link_to 'DMを送る', chat_path(@user.id), class: "btn btn-sm btn-success" %>
       <% end %>
     </div>
   </div>
