@@ -25,15 +25,15 @@
     </div>
     <div class="mb-3 mt-3 ">
       <% if current_user != @user %>
-        <%= render 'relationships/relationship', user: @user %>
+        <%= render 'relationships/relationship', user: @user %><br>
         <!-- current_userと@userが一致していない場合に`Begin Chat`を表示 -->
-        <%= link_to 'Begin Chat', chat_path(@user.id) %>
+        <%= link_to 'DMを送る', chat_path(@user.id) %>
       <% end %>
     </div>
   </div>
 
-  
-  
+
+
   <div class="sort">
      <span><%= link_to "新着順",user_path(sort: "new_arrival_order"), class: "btn btn-sm btn-link" %></span>
       <span>|</span>
@@ -41,7 +41,7 @@
       <span>|</span>
       <span><%= link_to "いいねが多い順",user_path(sort: "many_favorite"), class: "btn btn-sm btn-link" %></span>
   </div>
- 
+
 
   <div class="row">
     <% @nail.each do |nail| %>
