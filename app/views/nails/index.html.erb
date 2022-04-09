@@ -10,7 +10,7 @@
     <% @nails.each do |nail| %>
     <div class="nail-list col">
         <%= link_to  nail_path(nail.id) do %>
-          <%= image_tag nail.image, size: "200x200" %>
+          <%= image_tag nail.image, class: "nail-image" %>
         <% end %>
         <br>
         <%= image_tag nail.user.get_profile_image, size: '50x50', class: "rounded-circle" %>

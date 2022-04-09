@@ -46,7 +46,7 @@
     <% @nail.each do |nail| %>
     <div class="col">
         <%= link_to nail_path(nail.id) do %>
-        <%= image_tag nail.image, size: "200x200" %>
+        <%= image_tag nail.image, class: "nail-image" %>
         <% end %>
       <p>コメント数 <%= nail.nail_comments.count %></p>
       <p>いいね数 <%= nail.favorites.count %></p>

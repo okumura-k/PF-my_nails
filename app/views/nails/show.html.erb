@@ -13,18 +13,10 @@
       </div>
       <div class="col">
         <%= @nail.introduction %>
-
         <p>コメント数: <%= @nail.nail_comments.count %></p>
-
         <div class="favorite-btn">
           <%= render 'favorites/favorite-btn', nail: @nail %>
         </div>
-
-        <div class="comment">
-          <%= render 'nail_comments/form', nail: @nail, nail_comment: @nail_comment %>
-        </div>
-
-
       </div>
       <div class="col">
         <% if @nail.user == current_user %>
@@ -35,9 +27,12 @@
     </div>
   <div class="row">
     <div id="comment_area">
-    <% @nail.nail_comments.each do |nail_comment| %>
-      <%= render 'nail_comments/comment', nail_comment: nail_comment %>
-    <% end %>
+      <% @nail.nail_comments.each do |nail_comment| %>
+        <%= render 'nail_comments/comment', nail_comment: nail_comment %>
+      <% end %>
     </div>
+  </div>
+  <div class="comment">
+    <%= render 'nail_comments/form', nail: @nail, nail_comment: @nail_comment %>
   </div>
 </div>

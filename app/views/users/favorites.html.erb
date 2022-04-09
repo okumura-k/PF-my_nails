@@ -6,13 +6,13 @@
   <span>|</span>
   <span><%= link_to "いいねが多い順",favorites_user_path(@user, sort: "many_favorite"), class: "btn btn-sm btn-link" %></span>
     <div class="row">
-      <% @favorite_nails.each do  |nail| %>    
+      <% @favorite_nails.each do  |nail| %>
           <div class="col mt-5">
             <%= link_to  nail_path(nail.id) do %>
-             <%= image_tag nail.image, size: "200x200" %>
+             <%= image_tag nail.image, class: "nail-image" %>
              <% end %><br>
              いいね数 <%= nail.favorites.count %>
           </div>
-     <% end %>    
+     <% end %>
     </div>
 </div>
